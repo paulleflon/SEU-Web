@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Task Arrangement</title>
+	<link rel='stylesheet' href='style.css' />
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+	<script src='script.js' defer></script>
+</head>
+
+<body>
+	<div id='heading'>
+		<div id='heading-text'>
+			<div id='heading--title'>
+				Welcome to Task Manager
+			</div>
+			<div id='heading--subtitle'>
+				This is the homepage of the Task Manager application.
+			</div>
+		</div>
+	</div>
+	<div id='app'>
+		<div class='center-content'>
+			<div class='section-title'>Task Arrangement</div>
+			<div id='create-task'>
+				<input name='task-name' type='text' placeholder='Enter your task' />
+				<input name='task-deadline' type='date' />
+				<select name='task-priority'>
+					<option value='low'>Low Priority</option>
+					<option value='medium'>Medium Priority</option>
+					<option value='high'>High Priority</option>
+				</select>
+				<input type='button' value='Add Task' name='add-task' />
+			</div>
+			<div id='task-lists'>
+				<div class='task-list' id='high-task-list'>
+					<div class='task-list-title'>High Priority Tasks</div>
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<div class='task-list' id='medium-task-list'>
+				<div class='task-list-title'>Medium Priority Tasks</div>
+				<ul>
+				</ul>
+			</div>
+			<div class='task-list' id='low-task-list'>
+				<div class='task-list-title'>Low Priority Tasks</div>
+				<ul>
+				</ul>
+			</div>
+			<div id='edit-task'>
+				<div id='edit-task-title'>Edit Task</div>
+				<input type='text' name='edit-name' />
+				<input type='date' name='edit-deadline'/>
+				<select name='edit-priority'>
+					<option value='low'>Low Priority</option>
+					<option value='medium'>Medium Priority</option>
+					<option value='high'>High Priority</option>
+				</select>
+				<input type='button' name='save-edit' value='Save' />
+				<input type='button' name='cancel-edit' value='Cancel' />
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
