@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<meta http-equiv='X-UA-Compatible' content='ie=edge' />
+	<script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+	<script src='main.js' defer></script>
+	<link rel='stylesheet' href='style.css'>
+	<title>Great Form!</title>
+</head>
+
+<body>
+	<div id='app'>
+		<section>
+
+			<h1>Create User Form</h1>
+			<form @submit.prevent='send'>
+				<label for='name'>Name</label>
+				<input required type='text' id='name' :class='{inputted: !!name }' v-model.trim='name'
+					placeholder='Enter your name' />
+				<label for='age'>Age</label>
+				<input required type='number' min='1' pattern='\d*' id='age' v-model='age' :class='{inputted: !!age}'
+					placeholder='Enter your age' />
+				<label for='location'>Location</label>
+				<select required id='location' v-model='location'>
+					<option disabled :value='null'>Select your location</option>
+					<option v-for='location in locations' :value='location'>{{ location }}</option>
+				</select>
+				<div id='skills'>
+					<label>Skills</label>
+					<div v-for='(value, key) in skills' :key='key'>
+						<input type='checkbox' :id='key' v-model='skills[key]' />
+						<label class='small' :for='key'>{{ key }}</label>
+					</div>
+					<button type='submit'>Submit</button>
+				</div>
+				<div id='clear-container'>
+					<button id='clear-form' @click='clear' type='button'>Clear</button>
+				</div>
+			</form>
+		</section>
+		<section>
+			<div id='form-output'>
+				<h2>Form output</h2>
+				<div>Name: {{ name || 'Default name'}}, Age: {{ age || 'No age entered'}}</div>
+				<div>Location: {{ location || 'No location selected' }}</div>
+				<div>Skills: {{displaySkills || 'No skills selected'}}</div>
+			</div>
+			<div id='fancy-box' :style='{background: fancyBoxBackground }'>
+				This box changes color dynamically!
+			</div>
+		</section>
+		<section>
+
+			<div id='user-list'>
+				<h2>User list</h2>
+				<table v-if='users.length'>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Location</th>
+							<th>Skills</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for='user in users' :key='user.id'>
+							<td>{{ user.name }}</td>
+							<td>{{ user.age }}</td>
+							<td>{{ user.location }}</td>
+							<td>{{ user.skills.join(', ') || 'No skills...' }}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div id='no-user' v-else>No users available</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>
