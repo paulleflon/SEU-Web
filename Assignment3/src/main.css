@@ -1,0 +1,43 @@
+:root {
+	--emerald-50: #ecfdf5;
+	--emerald-100: #d1fae5;
+	--emerald-200: #a7f3d0;
+	--emerald-300: #6ee7b7;
+	--emerald-400: #34d399;
+	--emerald-500: #10b981;
+	--emerald-600: #059669;
+	--emerald-700: #047857;
+	--emerald-800: #065f46;
+	--emerald-900: #064e3b;
+	--emerald-950: #022c22;
+} /* Palette taken from Tailwind */
+.box {
+	margin: 50px auto;
+	width: 800px;
+	background-color: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.box h1 {
+	font: bold 18pt Arial;
+	text-align: center;
+	color: var(--emerald-700);
+}
+
+button {
+	background: var(--emerald-500);
+	border: none;
+	padding: 10px 15px;
+	color: white;
+	border-radius: 5px;
+	font: 12pt Arial;
+	cursor: pointer;
+	transition: .3s ease;
+
+	&:hover {
+		background: var(--emerald-600);
+	}
+}
