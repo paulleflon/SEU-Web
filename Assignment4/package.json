@@ -1,0 +1,14 @@
+{
+  "name": "assignment4",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "crud": "node crud.js"
+  },
+  "author": "Paul Leflon",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
