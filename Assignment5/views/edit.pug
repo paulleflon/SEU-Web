@@ -1,0 +1,23 @@
+html 
+	head
+		title Users management system
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		script(src='/script.js', defer)
+		link(rel='stylesheet', href='/style.css')
+	body
+		include includes/header.pug
+		h2 Edit User
+		if error
+			p.error=error
+			button
+				a(href='/') Back
+		else 
+			form(action=`/users/edit/${user.id}`, method='POST')
+				.input-container
+					label(for="name") Name
+					input#name(type='text', name='name', value=user.name,required)
+				.input-container
+					label(for="email") Email
+					input#email(type='email', name='email', value=user.email,required)
+				button(type='submit') Save

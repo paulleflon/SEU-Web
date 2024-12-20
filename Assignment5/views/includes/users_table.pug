@@ -1,0 +1,25 @@
+mixin users_table(users,include_operations=true)
+	.table-container 
+		table
+			thead
+				tr
+					th ID
+					th Name
+					th Email
+					th Created At
+					th Updated at
+					if include_operations
+						th Operations
+			tbody
+				each user in users
+					tr
+						td=user.id
+						td=user.name
+						td=user.email
+						td=user.created_at
+						td=user.updated_at
+						if include_operations
+							td
+								button(data-user-id=user.id).delete.delete-user Delete
+								button
+									a(href=`/edit/${user.id}`) Edit

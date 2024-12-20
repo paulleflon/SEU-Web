@@ -1,0 +1,22 @@
+include includes/users_table.pug
+html 
+	head
+		title Search users
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/style.css')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+	body
+		include includes/header.pug
+		if search
+			h2 Search results for "#{search}"
+			if users.length
+				+users_table(users, false)
+			else
+				p.error No users found.
+		else
+			h2 Search users
+		form(action='/search', method='GET')
+			.input-container
+				label(for="search") Search by name
+				input#search(type='text', name='name', 'placeholder'='Johnny')
+			button(type='submit') Search

@@ -1,0 +1,29 @@
+include includes/users_table.pug
+html 
+	head
+		title Users management system
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		script(src='/script.js', defer)
+		link(rel='stylesheet', href='/style.css')
+	body
+		include includes/header.pug
+		h2 Home 
+		form#add-user(action='/users/add', method='POST')
+			.input-container
+				label(for="name") Name
+				input#name(type='text', name='name',placeholder='John Doe', required)
+			.input-container
+				label(for="email") Email
+				input#email(type='email', name='email', placeholder='john@doe.com', required)
+			button(type='submit') Add user
+		form#search(action='/search', method='GET')
+			.input-container
+				label(for="search") Search by name
+				input#search(type='text', name='name', 'placeholder'='John Doe')
+			button(type='submit') Search
+		h3 Users list
+		if users.length
+			+users_table(users, true)
+		else
+			p.error No users found
